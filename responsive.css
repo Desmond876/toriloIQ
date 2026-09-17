@@ -1,0 +1,388 @@
+/*
+  Responsive layout for iPads and phones.
+  Breakpoints match the live site (Elementor defaults):
+  - Tablet / iPad: 1024px and below
+  - Phone: 767px and below
+  https://iq.torilo.ng/
+*/
+
+.menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    width: 30px;
+    height: 22px;
+    padding: 0;
+    z-index: 2;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.menu-toggle span {
+    display: block;
+    width: 100%;
+    height: 3px;
+    background: #ffffff;
+    border-radius: 2px;
+    transition: 0.3s ease;
+}
+
+.menu-toggle.active span:nth-child(1) {
+    transform: translateY(9.5px) rotate(45deg);
+}
+
+.menu-toggle.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.menu-toggle.active span:nth-child(3) {
+    transform: translateY(-9.5px) rotate(-45deg);
+}
+
+/* ---------- iPads / tablets (portrait iPad ~768px, landscape ~1024px) ---------- */
+@media (max-width: 1024px) {
+    img {
+        max-width: 100%;
+        height: auto;
+    }
+
+    .logo img {
+        max-width: 2000px;
+    }
+
+    header {
+        min-height: auto;
+        padding-bottom: 4rem;
+        overflow: hidden;
+    }
+
+    header::before {
+        top: -80%;
+        left: -35%;
+        width: 70%;
+        height: 90%;
+    }
+
+    .navbar {
+        margin-left: 0;
+        padding: 24px 32px 0;
+        gap: 1rem;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+
+    .menu-toggle {
+        display: flex;
+    }
+
+    .navbar > .nav-links {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        gap: 1.25rem;
+        padding: 1.25rem 0 0.5rem;
+    }
+
+    .navbar > .nav-links.open {
+        display: flex;
+    }
+
+    header > h1 {
+        width: 55%;
+        font-size: 42px;
+        line-height: 1.25;
+        margin-top: 6rem;
+        margin-left: 1rem;
+    }
+
+    header > p {
+        width: 55%;
+        margin-left: 3rem;
+        margin-bottom: 4rem;
+    }
+
+    .nav-links > a {
+    position: relative;
+    display: inline-block;
+    width: fit-content;
+}
+
+.nav-links > a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -5px;
+    width: 0;
+    height: 2px;
+    background: white;
+    transition: width 0.3s ease;
+}
+
+.nav-links > a:hover::after {
+    width: 100%;
+}
+
+    .dashboard {
+        width: 42%;
+        top: 14rem;
+        height: auto;
+    }
+
+    #Blog {
+        margin-top: 3rem;
+        padding: 0 2rem;
+    }
+
+    #Blog > h1 {
+        font-size: 36px;
+        margin-bottom: 2rem;
+    }
+
+    .blog-wrapper {
+        gap: 2rem;
+        align-items: flex-start;
+    }
+
+    .blog-wrapper > :nth-child(2),
+    .blog-wrapper > :nth-child(1) {
+        flex: 1;
+        min-width: 0;
+        margin-top: 0;
+    }
+
+    #FAQ > h1 {
+        font-size: 32px;
+        padding-top: 3.5rem;
+        padding-left: 1.5rem;
+        padding-right: 1.5rem;
+    }
+
+    #FAQ > video {
+        width: 92%;
+    }
+
+    #FAQ > .FAQgrid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+        width: 92%;
+    }
+
+    .carousel {
+        height: auto;
+        padding-bottom: 4rem;
+    }
+
+    .swiper {
+        width: 85%;
+    }
+
+    #Contact {
+        width: 100%;
+        margin-left: 0;
+        height: auto;
+        padding-bottom: 4rem;
+        background-size: cover;
+        background-position: center;
+    }
+
+    #Contact > h1,
+    #Contact > p,
+    #Contact > form {
+        margin-left: 0;
+        padding-left: 1.5rem;
+        padding-right: 1.5rem;
+    }
+
+    #Contact > form > input {
+        width: 70%;
+        padding: 12px 16px;
+    }
+
+    footer {
+        height: auto;
+    }
+
+    .info {
+        width: 90%;
+        margin-left: auto;
+        margin-right: auto;
+        padding-top: 3.5rem;
+        gap: 2rem;
+    }
+
+    .last {
+        padding: 1.5rem 2rem;
+        gap: 1rem;
+        flex-wrap: wrap;
+    }
+}
+
+/* ---------- Phones ---------- */
+@media (max-width: 767px) {
+    #Blog br,
+    .FAQgrid br,
+    .info br {
+        display: none;
+    }
+
+    .logo img {
+        max-width: 100px;
+    }
+
+    header::before {
+        top: -60%;
+        left: -45%;
+        width: 95%;
+        height: 70%;
+    }
+
+    .navbar {
+        padding: 18px 20px 0;
+    }
+
+    header > h1 {
+        width: 90%;
+        font-size: 32px;
+        line-height: 1.3;
+        margin-top: 4.5rem;
+        margin-left: 1.25rem;
+        margin-right: 1.25rem;
+    }
+
+    header > p {
+        width: 90%;
+        margin-left: 1.25rem;
+        margin-right: 1.25rem;
+        margin-bottom: 2rem;
+        font-size: 14px;
+    }
+
+    .nav-links > a {
+    position: relative;
+    display: inline-block;
+    width: fit-content;
+}
+
+.nav-links > a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -5px;
+    width: 0;
+    height: 2px;
+    background: white;
+    transition: width 0.3s ease;
+}
+
+.nav-links > a:hover::after {
+    width: 100%;
+}
+
+    .dashboard {
+        position: relative;
+        top: auto;
+        right: auto;
+        width: 95%;
+        display: block;
+        margin: 0 auto;
+    }
+
+    #Blog {
+        padding: 0 1.25rem;
+        margin-top: 2.5rem;
+    }
+
+    #Blog > h1 {
+        font-size: 28px;
+    }
+
+    .blog-wrapper {
+        flex-direction: column;
+        align-items: center;
+        gap: 3rem;
+    }
+
+    .blog-wrapper > :nth-child(2),
+    .blog-wrapper > :nth-child(1) {
+        width: 100%;
+    }
+
+    .blog-wrapper > :nth-child(2) > button,
+    .blog-wrapper > :nth-child(1) > button {
+        margin-top: 1.25rem;
+    }
+
+    #FAQ > h1 {
+        font-size: 26px;
+        padding-top: 3rem;
+        padding-bottom: 2rem;
+        line-height: 1.3;
+    }
+
+    #FAQ > video {
+        width: 94%;
+    }
+
+    #FAQ > .FAQgrid {
+        grid-template-columns: 1fr;
+        width: 90%;
+        padding-bottom: 2rem;
+    }
+
+    .FAQgrid > div > p {
+        line-height: 1.6;
+    }
+
+    .carousel {
+        padding-bottom: 3rem;
+    }
+
+    .swiper {
+        width: 92%;
+    }
+
+    .swiper-slide > p {
+        padding: 12px;
+        font-size: 14px;
+        line-height: 1.6;
+    }
+
+    .swiper > .swiper-button-prev,
+    .swiper > .swiper-button-next {
+        transform: scale(0.65);
+    }
+
+    #Contact > h1 {
+        font-size: 28px;
+        padding-top: 3.5rem;
+    }
+
+    #Contact > form > input {
+        width: 90%;
+    }
+
+    .info {
+        flex-direction: column;
+        width: 88%;
+        padding-top: 3rem;
+        padding-bottom: 2rem;
+        gap: 2.5rem;
+    }
+
+    .last {
+        flex-direction: column;
+        text-align: center;
+        padding: 1.5rem 1.25rem 5rem;
+    }
+
+    .last > p {
+        font-size: 13px;
+        line-height: 1.6;
+    }
+
+    .whatsapp-btn {
+        bottom: 16px;
+        right: 16px;
+    }
+}
